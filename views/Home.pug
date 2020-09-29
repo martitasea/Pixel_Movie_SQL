@@ -1,0 +1,45 @@
+tml
+    head
+        title="Pixel Movie - "+title
+        //- meta(name='viewport' content='width=device, initial-scale=1.0')
+        link(rel='stylesheet' type='text/css' href='css/reset.css')
+        link(rel='stylesheet' type='text/css' href='css/style.css')
+        link(rel='stylesheet' type='text/css' href='css/home.css')
+        link(rel='icon' type='image/png' href="img/camera.svg")  
+    body
+        header#header
+            div#title
+                img#logo(src="./img/camera.svg", alt="camera")
+                h1="Pixel Movie"
+            nav#navHeader
+                a#butHome(href="/")="Home"
+                a#butForm(href="/form")="Nueva Película"
+        form#search
+            input#filmSearch(type="text" placeholder="Busca una película")
+            div
+            button#buttonSearch(type="button" onclick="getFilmDetails()")="Obtén detalles"
+        p#favTit="Tus peliculas favoritas"
+        div#sheetCollection
+            each film in films
+                div#sheet
+                    div#sheetHeader
+                        h2=film.title
+                        p=film.score
+                    div#sheetContent
+                        img#poster(src=film.poster, alt="Poster Film")
+                        div#detFilm
+                            p#id=id
+                            div.cat
+                                p.key="Director"
+                                p.value=film.director
+                            div.cat
+                                p.key="Pais"
+                                p.value=film.country
+                    nav#navSheet
+                        a#butEditS(href="#" onclick=`readFilmDetails("${film.title}")`)="Editar"
+                        a#butDeleteS(href="#" onclick=`deleteFilmDetails("${film.title}")`)="Borrar"
+                        a#butDetailsS(href="#" onclick=`seeFilmDetails("${film.title}")`)="Detalles"
+            else 
+                p#resTit.regular.white No tienes películas guardadas.
+        footer="Made by Marta Pulido 2020"
+script(src="script.js")
