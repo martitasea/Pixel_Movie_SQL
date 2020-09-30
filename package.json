@@ -4,9 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
-    "borra": "nodemon borra.js"
+    "test": "jest",
+    "start": "nodemon server.js"
   },
   "author": "Martitasea",
   "license": "ISC",
@@ -16,5 +15,8 @@
     "mariadb": "^2.4.2",
     "node-fetch": "^2.6.1",
     "pug": "^3.0.0"
+  },
+  "devDependencies": {
+    "jest": "^26.4.2"
   }
 }

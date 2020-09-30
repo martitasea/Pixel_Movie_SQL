@@ -8,7 +8,7 @@ const pool = mariadb.createPool({
 });
 const bodyParser = require("body-parser");
 //-----------------------------------------------------------------------
-// FUNCIONA---------------C_CREAR UN DOCUMENTO
+// C_CREAR UN DOCUMENTO
 //-----------------------------------------------------------------------
 exports.createFilm = async (film) => {
   let conn;
@@ -39,7 +39,7 @@ exports.createFilm = async (film) => {
   }
 };
 //------------------------------------------------------------------------
-// FUNCIONA---------------R_LEER UNO
+// R_LEER UN DOCUMENTO
 //------------------------------------------------------------------------
 exports.getFilmDetail = async (titulo) => {
   try {
@@ -56,7 +56,7 @@ exports.getFilmDetail = async (titulo) => {
   }
 };
 //------------------------------------------------------------------------
-// FUNCIONA---------------R_LEER MUCHOS
+// R_LEER MUCHOS
 //------------------------------------------------------------------------
 exports.getFilmsDetail = async () => {
   let conn;
@@ -102,37 +102,9 @@ exports.updateFilm = async (film, id) => {
   } finally {
     if (conn) conn.release(); //release to pool
   }
-
-  // const client = await connect();
-  // result = await client
-  //   .db("moviedb")
-  //   .collection("peliculas")
-  //   .updateOne(
-  //     { _id: ObjectId(id) },
-  //     {
-  //       $set: {
-  //         title: film.title,
-  //         poster: film.poster,
-  //         director: film.director,
-  //         genre: film.genre,
-  //         country: film.country,
-  //         year: film.year,
-  //         runtime: film.runtime,
-  //         score: film.score,
-  //         actors: film.actors,
-  //         plot: film.plot,
-  //         awards: film.awards,
-  //       },
-  //     }
-  //   );
-  // if (result) {
-  //   return result;
-  // } else {
-  //   return null;
-  // }
 };
 //------------------------------------------------------------------------
-// FUNCIONA---------------D_BORRAR UNO
+// D_BORRAR UNO
 //------------------------------------------------------------------------
 exports.deleteFilm = async (nameFilm) => {
   let conn;

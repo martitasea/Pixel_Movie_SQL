@@ -6,7 +6,6 @@ const bbdd = require("./bbdd.js"); //Módulos propios BBDD
 HOME
 ---------------------------------------------------------------------- */
 exports.getHome = (req, res) => {
-  let i = 0;
   bbdd
     .getFilmsDetail()
     .then((data) =>
